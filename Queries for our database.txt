@@ -1,0 +1,49 @@
+// Model  : 4 nodes: Person, Movie, Genre, User, Keyword
+//          7 relations
+
+// The output of the query is commented below the query
+// Also, the output can be found in the Snippets Repository
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+// ==================================================================
+
+CALL db.schema.visualization()
+
+//Displaying 5 nodes, 8 relationships.
+
+This query is used to display the schema of our database.
+
+// ==================================================================
+
+MATCH (p:Person)-[a:ACTED_IN]->(m:Movie) RETURN p,m
+
+//Displaying 300 nodes, 375 relationships.
+
+This query displays all the persons who have acted in movie. 
+
+// ==================================================================
+
+MATCH (m:Movie)-[:HAS_GENRE]->(g:Genre) RETURN m,g
+
+//Displaying 72 nodes, 152 relationships.
+
+This query displays all the genre of all the movies
+
+// ==================================================================
+
+MATCH (p:Person)-[d:DIRECTED]->(m:Movie) RETURN p,m
+
+//Displaying 106 nodes, 136 relationships.
+
+This query shows all the directors of all the movies
+
+// ==================================================================
+
+MATCH (p1:User)-[s:SIMILARITY]->(p2:User) RETURN p1,p2
+
+//Displaying 234 nodes, 1042 relationships.
+
+This query shows the similarity between users
+
+// ==================================================================
